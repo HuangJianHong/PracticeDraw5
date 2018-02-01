@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 public class Practice04DispatchDrawLayout extends LinearLayout {
@@ -23,15 +24,23 @@ public class Practice04DispatchDrawLayout extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    {
-        setWillNotDraw(false);
-    }
+//    {
+//        setWillNotDraw(false);
+//    }
 
     // 把 onDraw() 换成 dispatchDraw()，让绘制内容可以盖住子 View
     // 另外，在改完之后，上面的 setWillNotDraw(false) 也可以删了
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        Log.i(Practice04DispatchDrawLayout.class.getSimpleName(), "onDraw()");
+
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        Log.i(Practice04DispatchDrawLayout.class.getSimpleName(), "dispatchDraw()");
 
         pattern.draw(canvas);
     }

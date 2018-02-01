@@ -26,6 +26,10 @@ public class Practice03OnDrawLayout extends LinearLayout {
 
     {
         // 在这里插入 setWillNotDraw(false) 以启用完整的绘制流程
+        setWillNotDraw(false);
+        //默认情况下，LinearLayout不会调用自身的onDraw（）方法,只会调用 dipatchDraw（）方法绘制子View
+        // 需要设置false，才可以调用
+        //https://stackoverflow.com/questions/3480769/custom-widget-using-linearlayout-not-getting-ondraw
     }
 
     @Override
